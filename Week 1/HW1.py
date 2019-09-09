@@ -20,5 +20,24 @@ print(remove_substring_instances("hello", "ell"))
 # list to string function
 def list_to_str(l):
   for i in l:
-    return(str(i))
+    (str(i))
+    i += 1
+  return(str(i) + str(i) + str(i) + str(i))
 print(list_to_str([1, 2, 3, 4, 5]))
+
+# string to int function
+def str_to_int(num_string):
+  a = -1
+  if num_string[0:2] == "0b":
+    return int(num_string, 2)
+  elif num_string[0:2] == "0o":
+    return int(num_string, 8)
+  elif num_string[0:2] == "0x":
+    return int(num_string, 16)
+  elif type(int(num_string)) == int:
+    return int(num_string)
+  else:
+    return a
+print(str_to_int("0b100"))
+
+# HI ALIVA
