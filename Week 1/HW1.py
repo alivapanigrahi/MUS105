@@ -19,11 +19,11 @@ print(remove_substring_instances("hello", "ell"))
 
 # list to string function
 def list_to_str(l):
+  output = ""
   for i in l:
-    (str(i))
-    i += 1
-  return(str(i) + str(i) + str(i) + str(i))
-print(list_to_str([1, 2, 3, 4, 5]))
+    output += str(i)
+  return output    
+print(list_to_str([1, 2, 3]))
 
 # string to int function
 def str_to_int(num_string):
