@@ -40,4 +40,10 @@ def str_to_int(num_string):
     return a
 print(str_to_int("0b100"))
 
-# HI ALIVA
+# print christmas tree function
+def print_christmas_tree(size):
+  for i in range (size):
+    tree = ' '*(size-i-1) + '*'*(2*i+1) 
+    print(tree)
+  print(' ' * (size-1) + "*")
+print(print_christmas_tree(4))
