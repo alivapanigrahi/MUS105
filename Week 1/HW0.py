@@ -4,18 +4,15 @@ def power(base, exp):
   for i in range(exp):
     result *= base
   return result
-print(power(2, 3))
 
 # sum of list elements function
 def list_sum(l):
   return sum(l)
-print(list_sum([1,2.0,3,4.0]))
 
 # remove substring function
 def remove_substring_instances(in_str, substr):
   new_string = in_str.replace(in_str, substr)
   return(new_string, in_str.count(substr))
-print(remove_substring_instances("hello", "ell"))
 
 # list to string function
 def list_to_str(l):
@@ -23,7 +20,6 @@ def list_to_str(l):
   for i in l:
     output += str(i)
   return output    
-print(list_to_str([1, 2, 3]))
 
 # string to int function
 def str_to_int(num_string):
@@ -38,7 +34,6 @@ def str_to_int(num_string):
     return int(num_string)
   else:
     return a
-print(str_to_int("0b100"))
 
 # print christmas tree function
 def print_christmas_tree(size):
@@ -46,4 +41,3 @@ def print_christmas_tree(size):
     tree = ' '*(size-i-1) + '*'*(2*i+1) 
     print(tree)
   print(' ' * (size-1) + "*")
-print(print_christmas_tree(4))
