@@ -40,6 +40,8 @@ def is_palindrome(s):
     pass
 
 def is_in(a, b):
+    
+    
     """
     given a sequence of characters (string) b, output whether or not string a can be constructed with the letters of
     string b. For example:
@@ -53,7 +55,7 @@ def is_in(a, b):
     :return: whether or not a can be constructed from b
     :rtype: bool
     """
-    pass
+    
 
 def is_set(l):
     """
@@ -106,6 +108,7 @@ def nth_element(n, my_list):
     pass
 
 class Course:
+    """description = "Computation and Music 1"""
     """
     the Course class describes a college course. Each course should contain:
         - a course code as a string (i.e. MUS105)
@@ -128,14 +131,12 @@ class Course:
     of the functions.
     """
 
-    university = ""
+    university = "The University of Illinois at Urbana-Champaign"
 
     @staticmethod
     def print_school():
-        """
-        This function takes no parameters and returns nothing. The only thing it should do is print:
-            "The University is: {Course.university}"
-        """
+        print("The University is: " + Course.university)
+        
     def __init__(self, code, crn, description):
         """
         Initializer, your code should set instance variables with the same name as the parameters to their respective
@@ -152,14 +153,13 @@ class Course:
         """
 
         self.code = code
+        self.crn = crn
+        self.description = description
+        self.roster = []
 
     def add_student(self, student):
-        """
-        adds a student to the roster, by appending their netID to the end of the list
+        self.roster.append(student)
 
-        :param student: netID of student to add
-        :type student: str
-        """
         pass
 
     def remove_student(self, student):
@@ -174,9 +174,10 @@ class Course:
         pass
 
     def get_description(self):
-        """
+        return self.description
 
-        :return: a description of the course, as described above
-        :rtype: str
-        """
+Course.print_school()
 
+mus105 = Course("MUS105", 71866, "Computation & Music 1")
+mus105.add_student("alivabp2")
+print(mus105.get_description())
