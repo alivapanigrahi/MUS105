@@ -1,28 +1,3 @@
-#############################################################################################################
-#
-#  Homework 1 (Python Intro pt. 2)
-#  MUS105 Fall 2019
-#  Functions, Exceptions Object Oriented
-#
-#  DUE: Wednesday, September 18
-#
-#  Instructions:
-#    * for each of the functions below, read the docstring and implement the function as described.
-#    * feel free to to add helper functions, but DO NOT MODIFY the descriptions of the original functions.
-#
-#    * absolutely NO import statements should be added, they will result in an automatic 0 (the autograder
-#    will break)
-#
-#    * Some functions specify that certain built in functions may not be used. BE WARY OF THIS.
-#
-#    * if for whatever reason, an implementation detail is unclear, feel free to email:
-#      shijiel2@illinois.edu
-#    for clarification.
-#
-#    * Have Fun!
-#
-#############################################################################################################
-
 def is_palindrome(s):
     reverse = s[::-1]
     if s == reverse:
@@ -49,41 +24,25 @@ def is_set(l):
     pass
 
 def str_to_int2(num_string):
-    """
-    recall str_to_int from hw0. Re-implement that function, but instead of returning -1 in the case of unrecognized
-    bases, raise a ValueError, with the message "unrecognized base". If the base is recognized, but the actual 
-    representation is wrong, for example:
-        0b123
-    (binary numbers should only have 0 and 1), then raise a ValueError with the message "incorrect formatting"
-
-    the rest of the functionality should be identical to hw0
-
-    :param num_string: string representing an integer
-    :type num_string: str
-    :return: an integer with the value denoted by the string
-    :rtype: int
-    """
+    if num_string[0:2] == "0b":
+        return int(num_string, 2)
+    elif num_string[0:2] == "0o":
+        return int(num_string, 8)
+    elif num_string[0:2] == "0x":
+        return int(num_string, 16)
+    elif type(int(num_string)) == int:
+        return int(num_string)
+    else:
+        raise ValueError("unrecognized base")
+    
     pass
 
 def nth_element(n, my_list):
-    """
-    given a list my_list, return the nth element in the list. If the list does not have an nth element,
-    i.e. it is too small, you should raise a TypeError with the message:
-
-        "Cannot find nth element of inputs ({}, {})".format(n, my_list)
-
-    the nth element of the list is defined to be list[n - 1], if list is sorted (i.e. the nth smallest item)
-
-    *The naive implementation of this function is just fine, but if you're feeling adventurous, there is an O(n)
-    implementation of this. Look into the 'quick select' algorithm!
-
-    :param n: the 'nth' element in a list. For example the 3rd element would be sorted_list[2]
-    :type n: int
-    :param my_list: input list
-    :type my_list: list
-    :return: nth element in my_list
-    :rtype: float
-    """
+    if(n < 0 or n >= len(my_list)):
+        raise TypeError("Cannot find nth element of inputs ({}, {})".format(n, my_list))
+    else:
+        return my_list[n]
+    
     pass
 
 class Course:
@@ -117,7 +76,6 @@ class Course:
         print("The University is: " + Course.university)
         
     def __init__(self, code, crn, description):
-
         self.code = code
         self.crn = crn
         self.description = description
@@ -129,24 +87,12 @@ class Course:
         pass
 
     def remove_student(self, student):
-        
-        """
-        removes a student from the roster, by finding their index, and removing them from the roster list.
-        if the function is called on a student who is not enrolled in a course (i.e. they cannot be found in the roster)
-        raise a ValueError with the message: "student is not enrolled in course"
-
-        :param student: netID of student to remove
-        :type student: str
-        """
+        if student not in self.roster:
+            raise ValueError("student is not enrolled in course")
+        else:
+            self.roster.remove(student)
+    
         pass
 
     def get_description(self):
         return self.description
-'''
-Course.print_school()
-mus105 = Course("MUS105", 71866, "Computation & Music 1")
-mus105.add_student("alivabp2")
-print(mus105.get_description())
-is_palindrome("race car")
-
-'''
